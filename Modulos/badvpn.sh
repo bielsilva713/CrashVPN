@@ -50,13 +50,7 @@ fun_udp1 () {
         echo -e "\033[1;32mINSTALANDO O BADVPN !\033[0m\n"
 	    inst_udp () {
 	        cd $HOME
-			apt-get install dos2unix -y
-            wget https://www.dropbox.com/s/tgkxdwb03r7w59r/badvpn-udpgw -o /dev/null
-			wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/Modulos/antcrashvpn.sh -o /dev/null
-			dos2unix antcrashvpn.sh
-			mv -f $HOME /antcrashvpn.sh /bin/antcrashvpn.sh
-            mv -f $HOME/badvpn-udpgw /bin/badvpn-udpgw
-            chmod 777 /bin/badvpn-udpgw
+			apt-get update && apt-get upgrade && wget https://raw.githubusercontent.com/buklaisvas/Badvpn/master/badupd && bash badupd
 	   }
 	   fun_bar 'inst_udp'
 	   echo -e "\n\033[1;32mINICIANDO O BADVPN... \033[0m\n"
