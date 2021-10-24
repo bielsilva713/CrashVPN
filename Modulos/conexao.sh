@@ -5,7 +5,7 @@
 #	CONTATO TELEGRAM:	http://t.me/Openers Family_vpn
 #	CANAL TELEGRAM:	http://t.me/CrashVPN
 #
-#   MOD BY PENGUINEHIS
+#   MOD BY bielsilva713
 #====================================================
 [[ $(awk -F" " '{print $2}' /usr/lib/licence) == "@openersfamily" ]] && {
 	ram1=$(free -h | grep -i mem | awk {'print $2'})
@@ -507,8 +507,8 @@ pipeline_prefetch off" >>$var_sqd
 				rm -rf stunnel.conf
 				rm -rf cert.cert
 				rm -rf key.key
-				wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/stunnelcerts/cert
-				wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/stunnelcerts/stunnel
+				wget https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/stunnelcerts/cert
+				wget https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/stunnelcerts/stunnel
 				mv cert cert.pem
 				mv stunnel stunnel.conf
 				chmod 777 cert.pem
@@ -585,8 +585,8 @@ pipeline_prefetch off" >>$var_sqd
 				cd /etc/stunnel/
 				rm -rf stunnel.conf
 				rm -rf stunnel.pem
-				wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/stunnelcerts/cert
-				wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/stunnelcerts/stunnel
+				wget https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/stunnelcerts/cert
+				wget https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/stunnelcerts/stunnel
 				mv cert cert.pem
 				mv stunnel stunnel.conf
 				chmod 777 cert.pem
