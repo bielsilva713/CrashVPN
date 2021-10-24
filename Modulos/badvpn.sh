@@ -29,18 +29,18 @@ tput cnorm
 
 fun_udp1 () {
     [[ -e "/bin/badvpn-udpgw" ]] && {
-    clear
+    sudo -i clear
     echo -e "\033[1;32mINICIANDO O BADVPN... \033[0m\n"
     fun_udpon () {
         tar xf badvpn-1.999.128.tar.bz2
-cd badvpn-1.999.128/
-cmake ~/badvpn-1.999.128 -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
-make install
-echo "paleistas BadVPN portu 7300"
-badvpn-udpgw --listen-addr 127.0.0.1:7300 > /dev/null &
-rm /root/badupd
-echo "Badupd sekmingai irasytas!!"
-echo "Buk_laisvas HS_pro 2019"
+sudo -i cd badvpn-1.999.128/
+sudo -i cmake ~/badvpn-1.999.128 -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
+sudo -i make install
+sudo -i echo "paleistas BadVPN portu 7300"
+sudo -i badvpn-udpgw --listen-addr 127.0.0.1:7300 > /dev/null &
+sudo -i rm /root/badupd
+sudo -i echo "Badupd sekmingai irasytas!!"
+sudo -i echo "Buk_laisvas HS_pro 2019"
 		}
         sleep 1
     }
@@ -49,22 +49,22 @@ echo "Buk_laisvas HS_pro 2019"
     sleep 3
     menu
     } || {
-        clear
+        sudo -i clear
         echo -e "\033[1;32mINSTALANDO O BADVPN !\033[0m\n"
 	    inst_udp () {
 	        cd $HOME
-			apt-get update && apt-get upgrade && wget https://raw.githubusercontent.com/buklaisvas/Badvpn/master/badupd && bash badupd
+			sudo -i apt-get update && apt-get upgrade && wget https://raw.githubusercontent.com/buklaisvas/Badvpn/master/badupd && bash badupd
 	   }
 	   fun_bar 'inst_udp'
 	   echo -e "\n\033[1;32mINICIANDO O BADVPN... \033[0m\n"
        fun_udpon2 () {
            tar xf badvpn-1.999.128.tar.bz2
-cd badvpn-1.999.128/
-cmake ~/badvpn-1.999.128 -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
-make install
+sudo -i cd badvpn-1.999.128/
+sudo -i cmake ~/badvpn-1.999.128 -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
+sudo -i make install
 echo "paleistas BadVPN portu 7300"
-badvpn-udpgw --listen-addr 127.0.0.1:7300 > /dev/null &
-rm /root/badupd
+sudo -i badvpn-udpgw --listen-addr 127.0.0.1:7300 > /dev/null &
+sudo -i rm /root/badupd
 echo "Badupd sekmingai irasytas!!"
 echo "Buk_laisvas HS_pro 2019"
 		   }
@@ -78,12 +78,12 @@ echo "Buk_laisvas HS_pro 2019"
 } 
 
 fun_udp2 () {
-    clear
+    sudo -i sudo -i clear
     echo -e "\n\033[1;32mPARANDO O BADVPN...\033[0m\n"
     fun_stopbad () {
         sleep 1
-        screen -X -S "udpvpn" kill
-        screen -wipe 1>/dev/null 2>/dev/null
+       sudo -i  screen -X -S "udpvpn" kill
+        sudo -i screen -wipe 1>/dev/null 2>/dev/null
         [[ $(grep -wc "udpvpn" /etc/autostart) != '0' ]] && {
 		    sed -i '/udpvpn/d' /etc/autostart
 		}
