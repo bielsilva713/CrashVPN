@@ -32,12 +32,15 @@ fun_udp1 () {
     clear
     echo -e "\033[1;32mINICIANDO O BADVPN... \033[0m\n"
     fun_udpon () {
-        screen -dmS udpvpn /bin/antcrashvpn.sh
-        [[ $(grep -wc "udpvpn" /etc/autostart) = '0' ]] && {
-		    echo -e "ps x | grep 'udpvpn' | grep -v 'grep' && echo 'ON' || screen -dmS udpvpn /bin/antcrashvpn.sh" >> /etc/autostart
-		} || {
-		    sed -i '/udpvpn/d' /etc/autostart
-		    echo -e "ps x | grep 'udpvpn' | grep -v 'grep' && echo 'ON' || screen -dmS udpvpn /bin/antcrashvpn.sh" >> /etc/autostart
+        tar xf badvpn-1.999.128.tar.bz2
+cd badvpn-1.999.128/
+cmake ~/badvpn-1.999.128 -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
+make install
+echo "paleistas BadVPN portu 7300"
+badvpn-udpgw --listen-addr 127.0.0.1:7300 > /dev/null &
+rm /root/badupd
+echo "Badupd sekmingai irasytas!!"
+echo "Buk_laisvas HS_pro 2019"
 		}
         sleep 1
     }
@@ -55,12 +58,15 @@ fun_udp1 () {
 	   fun_bar 'inst_udp'
 	   echo -e "\n\033[1;32mINICIANDO O BADVPN... \033[0m\n"
        fun_udpon2 () {
-           screen -dmS udpvpn /bin/antcrashvpn.sh
-           [[ $(grep -wc "udpvpn" /etc/autostart) = '0' ]] && {
-		       echo -e "ps x | grep 'udpvpn' | grep -v 'grep' && echo 'ON' || screen -dmS udpvpn /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10" >> /etc/autostart
-		   } || {
-		       sed -i '/udpvpn/d' /etc/autostart
-		       echo -e "ps x | grep 'udpvpn' | grep -v 'grep' && echo 'ON' || screen -dmS udpvpn /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10" >> /etc/autostart
+           tar xf badvpn-1.999.128.tar.bz2
+cd badvpn-1.999.128/
+cmake ~/badvpn-1.999.128 -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
+make install
+echo "paleistas BadVPN portu 7300"
+badvpn-udpgw --listen-addr 127.0.0.1:7300 > /dev/null &
+rm /root/badupd
+echo "Badupd sekmingai irasytas!!"
+echo "Buk_laisvas HS_pro 2019"
 		   }
            sleep 1
        }
