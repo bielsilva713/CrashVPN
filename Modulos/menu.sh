@@ -407,15 +407,6 @@ case "$x" in
    ;;
    19)
    clear
-   ovpn18
-   ;;
-   20)
-   clear
-   sshpluconect
-   sleep 2
-   menu
-   ;;
-   21)
    menu2
    ;;
    0 | 00)
