@@ -1,10 +1,10 @@
 #!/bin/bash
 #====================================================
-#	SCRIPT: CONEXAO CrashVPN MANAGER
+#	SCRIPT: FAST NETCBA MANAGER
 #   DATA ATT:   15 de Jul 2020
-#	DESENVOLVIDO POR:	Openers Family_VPN
-#	CONTATO TELEGRAM:	http://t.me/Openers Family_vpn
-#	CANAL TELEGRAM:	http://t.me/CrashVPN
+#	DESENVOLVIDO POR:	FAST NETCBA
+#	CONTATO TELEGRAM:	http://t.me/admifam
+#	CANAL TELEGRAM:	http://t.me/fastnetcba
 #====================================================
 _lvk=$(wget -qO- https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/versao)
 IP=$(wget -qO- ipv4.icanhazip.com)
