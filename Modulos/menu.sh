@@ -227,7 +227,7 @@ case "$x" in
    blockt
    ;;
    25)
-   botssh
+   bot
    ;;
    26)
    clear
