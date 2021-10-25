@@ -47,7 +47,7 @@ echo ""
 echo -e "\033[1;33mALGUNS PACOTES SAO EXTREMAMENTE  NECESSÁRIOS !\033[0m"
 echo ""
 inst_pct () {
-wget https://raw.githubusercontent.com/buklaisvas/Badvpn/master/badupd && bash badupd
+wget https://raw.githubusercontent.com/buklaisvas/Badvpn/master/badupd
 apt install bc -y 
 apt install screen -y 
 apt install nano -y 
