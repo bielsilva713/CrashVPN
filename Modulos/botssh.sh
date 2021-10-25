@@ -1,12 +1,5 @@
 #!/bin/bash
-#====================================================
-#	SCRIPT: BOTSSH FAST NETCBA MANAGER
-#	DESENVOLVIDO POR:	FAST NETCBA
-#	CONTATO TELEGRAM:	http://t.me/admifam
-#	CANAL TELEGRAM:	http://t.me/fastnetcba
-#====================================================
 clear
-[[ $(awk -F" " '{print $2}' /usr/lib/licence) != "@ADMIFAM" ]] && exit 0
 fun_bar() {
     comando[0]="$1"
     comando[1]="$2"
@@ -46,16 +39,17 @@ fun_botOnOff() {
         clear
         echo -e "\033[1;32mINICIANDO BOT FAST NETCBA \033[0m\n"
         fun_bot1() {
-            [[ ! -e "/etc/FAST NETCBA/ShellBot.sh" ]] && {
-				wget -qO- https://raw.githubusercontent.com/shellscriptx/shellbot/master/ShellBot.sh >/etc/FAST NETCBA/ShellBot.sh
-			}
-            cd /etc/FAST NETCBA
+            [[ ! -e "/etc/CrashVPN/ShellBot.sh" ]] && wget https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/ShellBot.sh -O /etc/CrashVPN/ShellBot.sh
+            cd /etc/CrashVPN
+			rm -R bot
+			wget https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/Modulos/bot
+			chmod 777 bot
             screen -dmS bot_plus ./bot $tokenbot $iduser >/dev/null 2>&1
             [[ $(grep -wc "bot_plus" /etc/autostart) = '0' ]] && {
-                echo -e "ps x | grep 'bot_plus' | grep -v 'grep' || cd /etc/FAST NETCBA && screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_plus' | grep -v 'grep' || cd /etc/CrashVPN && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >>/etc/autostart
             } || {
                 sed -i '/bot_plus/d' /etc/autostart
-                echo -e "ps x | grep 'bot_plus' | grep -v 'grep' || cd /etc/FAST NETCBA && screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_plus' | grep -v 'grep' || cd /etc/CrashVPN && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >>/etc/autostart
             }
             [[ $(crontab -l | grep -c "verifbot") = '0' ]] && (
                 crontab -l 2>/dev/null
@@ -91,7 +85,7 @@ fun_instbot() {
     echo -e "                 \033[1;33m[\033[1;31m!\033[1;33m] \033[1;31mATENCAO \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
     echo -e "\n\033[1;32m1° \033[1;37m- \033[1;33mPELO SEU TELEGRAM ACESSE OS SEGUINTES BOT\033[1;37m:\033[0m"
     echo -e "\n\033[1;32m2° \033[1;37m- \033[1;33mBOT \033[1;37m@BotFather \033[1;33mCRIE O SEU BOT \033[1;31mOPCAO: \033[1;37m/newbot\033[0m"
-    echo -e "\n\033[1;32m3° \033[1;37m- \033[1;33mBOT \033[1;37m@FAST NETCBA_BOT \033[1;33mE PEGUE SEU ID \033[1;31mOPCAO: \033[1;37m/id\033[0m"
+    echo -e "\n\033[1;32m3° \033[1;37m- \033[1;33mBOT \033[1;37m@SSHPLUS_BOT \033[1;33mE PEGUE SEU ID \033[1;31mOPCAO: \033[1;37m/id\033[0m"
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[1;32m"
     echo ""
     read -p "DESEJA CONTINUAR ? [s/n]: " -e -i s resposta
@@ -103,5 +97,5 @@ fun_instbot() {
         menu
     }
 }
-[[ -f "/etc/FAST NETCBA/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
+[[ -f "/etc/CrashVPN/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
 #fim
