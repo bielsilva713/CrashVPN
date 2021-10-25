@@ -30,32 +30,32 @@ tput cnorm
 fun_botOnOff () {
       [[ $(ps x | grep "bot_plus"|grep -v grep | wc -l) = '0' ]] && {
           clear
-          echo -e "\E[44;1;37m             BOT DARKSSH INSTALLER                \E[0m\n"
-          echo -ne "\033[1;32mINFORM YOUR TOKEN:\033[1;37m "; read tokenbot
+          echo -e "\E[44;1;37m             BOT FAST NETCBA                \E[0m\n"
+          echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "; read tokenbot
   	    echo ""
-  	    echo -ne "\033[1;32mINFORM YOUR ID:\033[1;37m "; read iduser
+  	    echo -ne "\033[1;32mINFORME SUA ID:\033[1;37m "; read iduser
           clear
-          echo -e "\033[1;32mSTARTING DARKSSH BOT \033[0m\n"
+          echo -e "\033[1;32mINICIANDO FAST NETCBA BOT \033[0m\n"
           fun_bot1 () {
-  	        [[ ! -e "/etc/SSHPlus/ShellBot.sh" ]] && wget -qO- https://raw.githubusercontent.com/shellscriptx/shellbot/master/ShellBot.sh > /etc/SSHPlus/ShellBot.sh
-  	        cd /etc/SSHPlus
+  	        [[ ! -e "/etc/CrashVPN/ShellBot.sh" ]] && wget -qO- https://raw.githubusercontent.com/shellscriptx/shellbot/master/ShellBot.sh > /etc/CrashVPN/ShellBot.sh
+  	        cd /etc/CrashVPN
   	        screen -dmS bot_plus ./bot $tokenbot $iduser > /dev/null 2>&1
               [[ $(grep -wc "bot_plus" /etc/autostart) = '0' ]] && {
-		          echo -e "ps x | grep 'bot_plus' | grep -v 'grep' && echo 'ON' || cd /etc/SSHPlus && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >> /etc/autostart
+		          echo -e "ps x | grep 'bot_plus' | grep -v 'grep' && echo 'ON' || cd /etc/CrashVPN && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >> /etc/autostart
 		      } || {
 		          sed -i '/bot_plus/d' /etc/autostart
-		          echo -e "ps x | grep 'bot_plus' | grep -v 'grep' && echo 'ON' || cd /etc/SSHPlus && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >> /etc/autostart
+		          echo -e "ps x | grep 'bot_plus' | grep -v 'grep' && echo 'ON' || cd /etc/CrashVPN && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >> /etc/autostart
 		      }
 		      [[ $(crontab -l|grep -c "verifbot") = '0' ]] && (crontab -l 2>/dev/null; echo "@daily /bin/verifbot") | crontab -
   	        cd $HOME
           }
           fun_bar 'fun_bot1'
-          [[ $(ps x | grep "bot_plus"|grep -v grep | wc -l) != '0' ]] && echo -e "\n\033[1;32m DARKSSH BOT ON !\033[0m" || echo -e "\n\033[1;31m ERROR! RE-ANALYZE YOUR INFORMATION\033[0m"
+          [[ $(ps x | grep "bot_plus"|grep -v grep | wc -l) != '0' ]] && echo -e "\n\033[1;32m FAST NETCBA BOT ON !\033[0m" || echo -e "\n\033[1;31m ERRO! RE-ANALISE SUAS INFORMAÇÕES\033[0m"
           sleep 3
           menu
       } || {
           clear
-          echo -e "\033[1;32mSTOPPING BOT DARKSSH ... \033[0m\n"
+          echo -e "\033[1;32mSTOPPING BOT FAST NETCBA ... \033[0m\n"
           fun_bot2 () {
               screen -r -S "bot_plus" -X quit
               screen -wipe 1>/dev/null 2>/dev/null
@@ -66,18 +66,18 @@ fun_botOnOff () {
               sleep 1
           }
           fun_bar 'fun_bot2'
-          echo -e "\n\033[1;32m \033[1;31mDARKSSH BOT STOPPED! \033[0m"
+          echo -e "\n\033[1;32m \033[1;31mFAST NETCBA BOT STOPPED! \033[0m"
           sleep 3
           menu
       }
 }
 
 fun_instbot () {
-echo -e "\E[44;1;37m             BOT SSHPLUS INSTALLER                \E[0m\n"
-echo -e "                 \033[1;33m[\033[1;31m!\033[1;33m] \033[1;31mATTENTION \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
-echo -e "\n\033[1;32m1° \033[1;37m- \033[1;33mBY YOUR TELEGRAM ACCESS THE FOLLOWING BOT\033[1;37m:\033[0m"
-echo -e "\n\033[1;32m2° \033[1;37m- \033[1;33mBOT \033[1;37m@BotFather \033[1;33mCREATE YOUR BOT \033[1;31mOPTION: \033[1;37m/newbot\033[0m"
-echo -e "\n\033[1;32m3° \033[1;37m- \033[1;33mBOT \033[1;37m@my_id_bot \033[1;33mAND GET YOUR ID \033[1;31mOPTION: \033[1;37m/id\033[0m"
+echo -e "\E[44;1;37m             BOT FAST NETCBA                \E[0m\n"
+echo -e "                 \033[1;33m[\033[1;31m!\033[1;33m] \033[1;31mATENÇÃO \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
+echo -e "\n\033[1;32m1° \033[1;37m- \033[1;33mPELO SEU TELEGRAMA ACESSE O SEGUINTE BOT\033[1;37m:\033[0m"
+echo -e "\n\033[1;32m2° \033[1;37m- \033[1;33mBOT \033[1;37m@BotFather \033[1;33mCRIE SEU BOT \033[1;31mOPTION: \033[1;37m/newbot\033[0m"
+echo -e "\n\033[1;32m3° \033[1;37m- \033[1;33mBOT \033[1;37m@SSHPLUS_BOT \033[1;33mE PEGUE SUA ID \033[1;31mOPTION: \033[1;37m/id\033[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[1;32m"
 echo ""
 read -p "DESEJA CONTINUAR ? [s/n]: " -e -i n resposta
@@ -89,5 +89,5 @@ if [[ "$resposta" = 's' ]]; then
       menu
 fi
 }
-[[ -f "/etc/SSHPlus/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
+[[ -f "/etc/CrashVPN/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
 #fim
