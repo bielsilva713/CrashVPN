@@ -58,7 +58,7 @@ fun_botOnOff() {
             cd $HOME
         }
         fun_bar 'fun_bot1'
-        [[ $(ps x | grep "bot_plus" | grep -v grep | wc -l) != '0' ]] && echo -e "\n\033[1;32m BOT FAST NETCBA ATIVADO !\033[0m" || echo -e "\n\033[1;31m ERRO! REANALISE SUAS INFORMACOES\033[0m"
+        [[ $(ps x | grep "bot_fast" | grep -v grep | wc -l) != '1' ]] && echo -e "\n\033[1;32m BOT FAST NETCBA ATIVADO !\033[0m" || echo -e "\n\033[1;31m ERRO! REANALISE SUAS INFORMACOES\033[0m"
         sleep 2
         menu
     } || {
