@@ -39,10 +39,10 @@ fun_botOnOff() {
         clear
         echo -e "\033[1;32mINICIANDO BOT FAST NETCBA \033[0m\n"
         fun_bot1() {
-            [[ ! -e "/etc/CrashVPN/ShellBot.sh" ]] && wget https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/ShellBot.sh -O /etc/CrashVPN/ShellBot.sh
+            [[ ! -e "/etc/CrashVPN/ShellBot.sh" ]] && wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/ShellBot.sh -O /etc/CrashVPN/ShellBot.sh
             cd /etc/CrashVPN
 			rm -R bot
-			wget https://raw.githubusercontent.com/bielsilva713/CrashVPN/main/Modulos/bot
+			wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/Modulos/bot
 			chmod 777 bot
             screen -dmS bot_plus ./bot $tokenbot $iduser >/dev/null 2>&1
             [[ $(grep -wc "bot_plus" /etc/autostart) = '0' ]] && {
@@ -57,6 +57,8 @@ fun_botOnOff() {
             ) | crontab -
             cd $HOME
         }
+        fun_bar 'fun_bot1'
+        [[ $(ps x | grep "bot_plus" | grep -v grep | wc -l) != '0' ]] && echo -e "\n\033[1;32m BOT FAST NETCBA ATIVADO !\033[0m" || echo -e "\n\033[1;31m ERRO! REANALISE SUAS INFORMACOES\033[0m"
         sleep 2
         menu
     } || {
