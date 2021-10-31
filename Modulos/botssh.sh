@@ -37,19 +37,19 @@ fun_botOnOff() {
         echo -ne "\033[1;32mINFORME SEU ID:\033[1;37m "
         read iduser
         clear
-        echo -e "\033[1;32mINICIANDO BOT FAST NETCBA \033[0m\n"
+        echo -e "\033[1;32mINICIANDO BOT CrashARM \033[0m\n"
         fun_bot1() {
-            [[ ! -e "/etc/CrashVPN/ShellBot.sh" ]] && wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/ShellBot.sh -O /etc/CrashVPN/ShellBot.sh
-            cd /etc/CrashVPN
+            [[ ! -e "/etc/CrashARM/ShellBot.sh" ]] && wget https://github.com/bielsilva713/CrashVPN/main/ShellBot.sh -O /etc/CrashARM/ShellBot.sh
+            cd /etc/CrashARM
 			rm -R bot
-			wget https://raw.githubusercontent.com/Penguinehis/CrashVPN/main/Modulos/bot
+			wget https://github.com/bielsilva713/CrashVPN/main/Modulos/bot
 			chmod 777 bot
             screen -dmS bot_plus ./bot $tokenbot $iduser >/dev/null 2>&1
             [[ $(grep -wc "bot_plus" /etc/autostart) = '0' ]] && {
-                echo -e "ps x | grep 'bot_plus' | grep -v 'grep' || cd /etc/CrashVPN && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_plus' | grep -v 'grep' || cd /etc/CrashARM && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >>/etc/autostart
             } || {
                 sed -i '/bot_plus/d' /etc/autostart
-                echo -e "ps x | grep 'bot_plus' | grep -v 'grep' || cd /etc/CrashVPN && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_plus' | grep -v 'grep' || cd /etc/CrashARM && sudo screen -dmS bot_plus ./bot $tokenbot $iduser && cd $HOME" >>/etc/autostart
             }
             [[ $(crontab -l | grep -c "verifbot") = '0' ]] && (
                 crontab -l 2>/dev/null
@@ -83,10 +83,10 @@ fun_botOnOff() {
 fun_instbot() {
     echo -e "\E[44;1;37m             INSTALADOR BOT FAST NETCBA                \E[0m\n"
     echo -e "                 \033[1;33m[\033[1;31m!\033[1;33m] \033[1;31mATENCAO \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
-    echo -e "\n\033[1;32m1° \033[1;37m- \033[1;33mPELO SEU TELEGRAM ACESSE OS SEGUINTES BOT\033[1;37m:\033[0m"
-    echo -e "\n\033[1;32m2° \033[1;37m- \033[1;33mBOT \033[1;37m@BotFather \033[1;33mCRIE O SEU BOT \033[1;31mOPCAO: \033[1;37m/newbot\033[0m"
-    echo -e "\n\033[1;32m3° \033[1;37m- \033[1;33mBOT \033[1;37m@SSHPLUS_BOT \033[1;33mE PEGUE SEU ID \033[1;31mOPCAO: \033[1;37m/id\033[0m"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[1;32m"
+    echo -e "\n\033[1;32m1Â° \033[1;37m- \033[1;33mPELO SEU TELEGRAM ACESSE OS SEGUINTES BOT\033[1;37m:\033[0m"
+    echo -e "\n\033[1;32m2Â° \033[1;37m- \033[1;33mBOT \033[1;37m@BotFather \033[1;33mCRIE O SEU BOT \033[1;31mOPCAO: \033[1;37m/newbot\033[0m"
+    echo -e "\n\033[1;32m3Â° \033[1;37m- \033[1;33mBOT \033[1;37m@SSHPLUS_BOT \033[1;33mE PEGUE SEU ID \033[1;31mOPCAO: \033[1;37m/id\033[0m"
+    echo -e "\033[0;34mâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\033[1;32m"
     echo ""
     read -p "DESEJA CONTINUAR ? [s/n]: " -e -i s resposta
     [[ "$resposta" = 's' ]] && {
@@ -97,5 +97,5 @@ fun_instbot() {
         menu
     }
 }
-[[ -f "/etc/CrashVPN/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
+[[ -f "/etc/CrashARM/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
 #fim
